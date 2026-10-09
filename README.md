@@ -1,6 +1,6 @@
 # ceTDP-cons-SPM
 
-**ceTDP-cons-SPM** is a Stage 2 SPM extension that enables **quantitative cluster inference** by estimating the **True Discovery Proportion (TDP)** within each cluster using the **ceTDP-cons** approach.
+**ceTDP-cons-SPM** is a Stage 2 SPM extension that enables **quantitative cluster inference** by computing lower bounds on the True Discovery Proportion (TDP) within each cluster using the **ceTDP-cons** approach.
 
 It enhances traditional cluster-based inference by quantifying how much activation is present within each significant cluster, rather than only detecting whether a cluster contains any signal.
 
@@ -18,7 +18,7 @@ The ceTDP-cons method (Goeman et al., 2023) addresses this by:
 
 ## Why Should You Use?
 
-Use **ceTDP-cons-SPM** instead of standard cluster extent inference to:
+Use **ceTDP-cons-SPM** along with standard cluster extent inference to:
 
 - Provide more informative cluster interpretation
 - Quantify activation within clusters
@@ -99,15 +99,15 @@ spm_ceTDP_cons('results.csv');
 
 ### Inputs (*optional*)
 
-- ```xSPM``` Thresholded `SPM` structure. `SPM` must be generated using `spm_getSPM`
-- ```file``` Character string specifying a filename (for CSV export).
+- ```xSPM``` - Thresholded `SPM` structure. `SPM` must be generated using `spm_getSPM`
+- ```file``` - Character string specifying a filename (for CSV export).
 
 ### Outputs (*optional*)
 
-- `hReg` Handle to the results GUI
-- `xSPM` Thresholded SPM structure
-- `SPM` Standard SPM structure
-- `TabDat` Result summary table
+- `hReg` - Handle to the results GUI
+- `xSPM` - Thresholded SPM structure
+- `SPM` - Standard SPM structure
+- `TabDat` - Result summary table
 
 *Note: Outputs must be used either all together or not at all to enable/disable interactive exploration.*
 
@@ -127,7 +127,7 @@ x,y,z	| MNI coordinates
 
 ### How to Interpret TDP
 
-- TDP(lb) = 0.20 &rarr; At least 20% of voxels in the cluster are truly active
+- TDP(lb) = 0.20 &rarr; With the specified confidence level, at least 20% of voxels in the cluster are truly active
 - Higher TDP &rarr; stronger, more spatially specific activation
 - TDP helps avoid over-interpreting large clusters with sparse signal
 
